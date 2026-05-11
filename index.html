@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -1241,8 +1241,10 @@ Perfect for quotes, announcements, or any text you want to share as an image.</t
         function downloadImage() {
             if (canvas.style.display === 'none') { generateImage(); }
             const link = document.createElement('a');
-            const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, -5);
-            link.download = `text-image-${timestamp}.png`;
+            const now = new Date();
+            const date = now.getFullYear() + '-' + String(now.getMonth()+1).padStart(2,'0') + '-' + String(now.getDate()).padStart(2,'0');
+            const time = String(now.getHours()).padStart(2,'0') + String(now.getMinutes()).padStart(2,'0') + String(now.getSeconds()).padStart(2,'0');
+            link.download = `Screenshot ${date} ${time}.png`;
             link.href = canvas.toDataURL('image/png');
             link.click();
         }
@@ -1319,6 +1321,8 @@ Perfect for quotes, announcements, or any text you want to share as an image.</t
     </script>
 </body>
 </html>
+
+
 
 
 
