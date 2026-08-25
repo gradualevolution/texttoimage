@@ -30,14 +30,6 @@
             --primary-color: #007AFF;
         }
 
-        [data-theme="dark"] {
-            --bg-color: #0d0d0d;
-            --text-color: #ffffff;
-            --text-color-secondary: #b0b0b0;
-            --border-color: rgba(255, 255, 255, 0.12);
-            --card-shadow: 0 8px 24px rgba(0, 0, 0, 0.8);
-        }
-
         @font-face {
             font-family: 'Dudu Calligraphy';
             src: url('fonts/Dudu_Calligraphy.ttf') format('truetype');
@@ -70,10 +62,6 @@
             overflow-x: hidden;
             font-size: 17px;
             line-height: 1.7;
-        }
-
-        [data-theme="dark"] body {
-            background: #000000;
         }
 
         .noise-overlay {
@@ -121,10 +109,6 @@
             margin: 0;
         }
 
-        [data-theme="dark"] .logo h1 {
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
         /* center slot (empty spacer) */
         .header-center {
             display: flex;
@@ -139,179 +123,9 @@
             justify-content: flex-end;
         }
 
-        .settings-button,
-        .header-icon-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: var(--card-radius);
-            font-size: 1rem;
-            border: 1px solid var(--border-color);
-            cursor: pointer;
-            background: var(--bg-color);
-            color: var(--text-color);
-            transition: var(--transition-standard);
-        }
 
-        .settings-button:hover,
-        .header-icon-button:hover { opacity: 0.8; }
-        .settings-button:active,
-        .header-icon-button:active { transform: scale(0.88); }
 
-        /* ============================================
-           Toggle Switch
-        ============================================ */
-        .toggle-switch {
-            position: relative;
-            width: 75px;
-            height: 42px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-            overflow: visible;
-        }
 
-        .toggle-switch:active { transform: scale(0.95); }
-
-        .switch-track {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: #e0e0e0;
-            border-radius: 21px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.05);
-        }
-
-        .switch-thumb {
-            position: absolute;
-            top: 3px; left: 3px;
-            width: 33px; height: 33px;
-            background: #ffffff;
-            border-radius: 50%;
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateX(0);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2), 0 1px 2px rgba(0,0,0,0.15);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            font-weight: 700;
-            color: #555555;
-            user-select: none;
-        }
-
-        [data-theme="dark"] .toggle-switch .switch-track {
-            background: #2a2a2a;
-            border-color: rgba(255,255,255,0.2);
-        }
-
-        [data-theme="dark"] .toggle-switch .switch-thumb {
-            background: #f0f0f0;
-            transform: translateX(33px);
-            color: #333333;
-        }
-
-        [data-theme="dark"] .toggle-switch:active .switch-thumb {
-            transform: translateX(33px) scale(0.92);
-        }
-
-        .toggle-switch:active .switch-thumb {
-            transform: translateX(0) scale(0.92);
-        }
-
-        /* ============================================
-           Settings Panel
-        ============================================ */
-        .settings-overlay {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.42);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease, visibility 0.2s ease;
-        }
-
-        .settings-overlay.active { opacity: 1; visibility: visible; }
-
-        .settings-panel {
-            position: fixed;
-            top: 0;
-            right: -430px;
-            width: min(430px, 100%);
-            height: 100vh;
-            background: var(--bg-color);
-            border-left: 1px solid var(--border-color);
-            box-shadow: -24px 0 70px rgba(0,0,0,0.18);
-            z-index: 999;
-            transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            overflow-y: auto;
-        }
-
-        .settings-panel.active { right: 0; }
-
-        .settings-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .settings-header h2 {
-            font-family: 'Alegreya', Georgia, serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--text-color);
-            margin: 0;
-        }
-
-        .close-settings {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: var(--text-color);
-            cursor: pointer;
-            padding: 0.5rem;
-            border-radius: 50%;
-            width: 40px; height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-standard);
-        }
-
-        .close-settings:hover { background: rgba(0,0,0,0.05); }
-        [data-theme="dark"] .close-settings:hover { background: rgba(255,255,255,0.1); }
-        .close-settings:active { transform: scale(0.95); }
-
-        .settings-content { padding: 2rem; }
-
-        .setting-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.5rem;
-            background: var(--bg-color);
-            border: 1px solid var(--border-color);
-            border-radius: var(--card-radius);
-            margin-bottom: 1rem;
-        }
-
-        .setting-label {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-color);
-            font-family: 'Alegreya', Georgia, serif;
-        }
 
         /* ============================================
            Section Title
@@ -672,8 +486,6 @@
             max-height: 618px;
         }
 
-        [data-theme="dark"] footer { border-top: none; }
-
         footer::before {
             content: '';
             position: absolute;
@@ -870,18 +682,10 @@
                 color: #1f2937 !important;
             }
 
-            [data-theme="dark"] .footer-section {
-                background: rgba(30,30,32,0.85) !important;
-                border: 1px solid rgba(60,60,67,0.6) !important;
-                color: #f9fafb !important;
-            }
-
             .footer-title { color: #1f2937 !important; text-shadow: none !important; }
-            [data-theme="dark"] .footer-title { color: #f9fafb !important; }
             .footer-title::after { display: none; }
 
             .footer-section p { color: #374151 !important; text-shadow: none !important; }
-            [data-theme="dark"] .footer-section p { color: #e5e7eb !important; }
 
             .tool-links { flex-direction: column; gap: 0.875rem; }
 
@@ -893,27 +697,12 @@
                 border-radius: var(--button-radius);
             }
 
-            [data-theme="dark"] .tool-links a,
-            [data-theme="dark"] .github-link {
-                background: linear-gradient(135deg, #2c2c2e 0%, #1c1c1e 100%) !important;
-                color: #f9fafb !important;
-                border: 1px solid rgba(60,60,67,0.6);
-            }
-
             .copyright p {
                 color: #6E6E73 !important;
                 text-shadow: none !important;
                 background: rgba(255,255,255,0.6) !important;
                 border-radius: var(--button-radius);
             }
-
-            [data-theme="dark"] .copyright p {
-                color: #a1a1a6 !important;
-                background: rgba(30,30,32,0.85) !important;
-                border: 1px solid rgba(60,60,67,0.6);
-            }
-
-            .settings-panel { width: 100%; right: -100%; }
         }
 
         @media (min-width: 769px) {
@@ -965,8 +754,6 @@
             50%  { opacity: 0.8; }
             100% { opacity: 1; }
         }
-
-        .toggle-switch:active .switch-track { animation: track-pulse 0.3s ease; }
     </style>
 </head>
 
@@ -980,32 +767,8 @@
         </div>
         <div class="header-center"></div>
         <nav class="language-selector" aria-label="Controls">
-            <button class="settings-button" onclick="toggleSettingsPanel()" aria-label="Open settings" aria-expanded="false">
-                <i class="fas fa-cog" aria-hidden="true"></i>
-            </button>
         </nav>
     </header>
-
-    <!-- Settings Panel -->
-    <div class="settings-overlay" id="settings-overlay" onclick="closeSettingsPanel()"></div>
-    <div class="settings-panel" id="settings-panel" role="dialog" aria-label="Settings">
-        <div class="settings-header">
-            <h2>Settings</h2>
-            <button class="close-settings" onclick="closeSettingsPanel()" aria-label="Close settings">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="settings-content">
-            <div class="setting-item">
-                <div class="setting-label">Appearance</div>
-                <button class="toggle-switch" onclick="toggleTheme(event)" aria-label="Toggle appearance" aria-pressed="false">
-                    <div class="switch-track">
-                        <div class="switch-thumb" id="switch-thumb-label">L</div>
-                    </div>
-                </button>
-            </div>
-        </div>
-    </div>
 
     <!-- Section Title -->
     <div class="section-title-wrapper">
@@ -1267,75 +1030,7 @@
             link.click();
         }
 
-        // ============================================
-        // Settings Panel
-        // ============================================
-        function toggleSettingsPanel() {
-            const panel = document.getElementById('settings-panel');
-            const overlay = document.getElementById('settings-overlay');
-            const button = document.querySelector('.settings-button');
-            const isActive = panel.classList.contains('active');
-            if (isActive) {
-                closeSettingsPanel();
-            } else {
-                panel.classList.add('active');
-                overlay.classList.add('active');
-                button.setAttribute('aria-expanded', 'true');
-                const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-                document.body.style.overflow = 'hidden';
-                document.body.style.paddingRight = scrollbarWidth + 'px';
-            }
-        }
 
-        function closeSettingsPanel() {
-            const panel = document.getElementById('settings-panel');
-            const overlay = document.getElementById('settings-overlay');
-            const button = document.querySelector('.settings-button');
-            panel.classList.remove('active');
-            overlay.classList.remove('active');
-            button.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-            document.body.style.paddingRight = '';
-        }
-
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') {
-                const panel = document.getElementById('settings-panel');
-                if (panel && panel.classList.contains('active')) closeSettingsPanel();
-            }
-        });
-
-        // ============================================
-        // Theme Toggle
-        // ============================================
-        function toggleTheme(event) {
-            if (event) event.stopPropagation();
-            const html = document.documentElement;
-            const isDark = html.getAttribute('data-theme') === 'dark';
-            const newTheme = isDark ? 'light' : 'dark';
-            if (newTheme === 'dark') { html.setAttribute('data-theme', 'dark'); }
-            else { html.removeAttribute('data-theme'); }
-            localStorage.setItem('theme-preference', newTheme);
-            const toggleBtn = document.querySelector('.toggle-switch');
-            const nowDark = newTheme === 'dark';
-            toggleBtn.setAttribute('aria-pressed', nowDark);
-            document.getElementById('switch-thumb-label').textContent = nowDark ? 'D' : 'L';
-        }
-
-        function loadThemePreference() {
-            const saved = localStorage.getItem('theme-preference') || 'light';
-            if (saved === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-            const isDark = saved === 'dark';
-            const toggleBtn = document.querySelector('.toggle-switch');
-            if (toggleBtn) {
-                toggleBtn.setAttribute('aria-pressed', isDark);
-                document.getElementById('switch-thumb-label').textContent = isDark ? 'D' : 'L';
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            loadThemePreference();
-        });
     </script>
 </body>
 
